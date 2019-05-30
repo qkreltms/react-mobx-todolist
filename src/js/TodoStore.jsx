@@ -1,6 +1,6 @@
-import { computed, observable, autorun, values } from 'mobx'
+import { computed, observable, autorun } from 'mobx'
 
-// Object
+// Todo Object
 class Todo {
     @observable value
     @observable id
@@ -20,6 +20,14 @@ class TodoStore {
     @computed get filteredTodos() {
         const matchesFilter = new RegExp(this.filter, "i") // 대소문자 구분안함
         return this.todos.filter(todo => matchesFilter.test(todo.value))
+    }
+
+    toggleTodoIsComplete = () => {
+        
+    }
+
+    setFilter = (filter) => {
+        this.filter = filter
     }
 
     pushTodo = (todo) => {

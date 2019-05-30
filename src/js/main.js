@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { Provider } from 'mobx-react'
 import TodoList from './TodoList'
-import store from './TodoStore'
+import stores from './stores'
 
-ReactDOM.render(<TodoList store={store}/>, document.getElementById('root'))
+ReactDOM.render(
+    <Provider {...stores}>
+        <TodoList />
+    </Provider>, document.getElementById('root'))
